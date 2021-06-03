@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Tiger Yoda Puppy</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+  </head>
+
+<body>
+  <div class="container p-2">
+    <div class="d-flex">
+      <ul class="logo">
+        <li><img src="https://picsum.photos/id/1074/50/50?grayscale"></li>
+        <li><img src="https://picsum.photos/id/1025/50/50?grayscale"></li>
+        <li><img src="https://picsum.photos/id/237/50/50?grayscale"></li>
+      </ul>
+      <h1 class="header">Choose Your Protector</h1>
+    </div>
+
+    <div class="mt-2">
+    <div id="choose">
+      <div class="grid row">
+        <div class="item card col-4">
+          <img id="tiger" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1074/300">
+        </div>
+        <div class="item card col-4">
+          <img id="yoda" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/237/300">
+        </div>
+        <div class="item card col-4">
+          <img id="puppy" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1025/300">
+        </div>
+    </div>
+    </div>
+
+    <div id="result">
+      <div class="grid row">
+          <div class="item card col-4">
+            <img id="human" class="row image img-rounded img-responsive" src="#">
+          </div>
+          <div class="item card col-4">
+            <img id="comp" class="row image img-rounded img-responsive" src="#">
+          </div>
+      </div>
+      <h3 id ="message"></h3>
+      <div class="text-left mt-3">
+        <button class="btn" onclick="play_again()">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+ <script src="typ.js"> </script>
+ <script>  gsap.from(".header", {scale: 0.2}); </script>
+
+</body>
+</html>
