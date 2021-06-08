@@ -22,8 +22,7 @@
       <h1 class="header">Choose Your Protector</h1>
     </div>
 
-    <div class="mt-2">
-    <div id="choose">
+    <div id="choose" class="mt-2">
       <div class="grid row">
         <div class="item card col-4">
           <img id="tiger" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1074/300">
@@ -34,7 +33,7 @@
         <div class="item card col-4">
           <img id="puppy" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1025/300">
         </div>
-    </div>
+      </div>
     </div>
 
     <div id="result">
@@ -48,9 +47,11 @@
       </div>
       <h3 id ="message"></h3>
       <div class="text-left mt-3">
-        <button class="btn" onclick="play_again()">Play Again</button>
+        <button class="btn" onclick="next_round()">Next Round</button>
+        <button class="btn" onclick="reset()">Reset</button>
       </div>
     </div>
+    <h3 id ="score"></h3>
   </div>
 
  <script src="typ.js"> </script>

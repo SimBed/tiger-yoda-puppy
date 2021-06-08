@@ -6,7 +6,6 @@
   visibility: hidden;
 }
 
-
 #result {
   visibility: hidden;
   margin-bottom: 1rem;
@@ -19,9 +18,19 @@
   font-size: 1.2rem;
 }
 
+#score {
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
 @media (min-width: 790px) {
-#message {
+#message, #score {
  font-size: 1.6rem;
+ }
+#score {
+  font-size: 1.3rem;
  }
 }
 
