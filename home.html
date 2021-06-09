@@ -19,7 +19,7 @@
         <li><img src="https://picsum.photos/id/1025/50/50?grayscale"></li>
         <li><img src="https://picsum.photos/id/237/50/50?grayscale"></li>
       </ul>
-      <h1 class="header">Choose Your Protector</h1>
+      <h1 id="header">Choose Your Protector</h1>
     </div>
 
     <div id="choose" class="mt-2">
@@ -37,7 +37,7 @@
     </div>
 
     <div id="result">
-      <div class="grid row">
+      <div id="outcome" class="grid row">
           <div class="item card col-4">
             <img id="human" class="row image img-rounded img-responsive" src="#">
           </div>
@@ -46,12 +46,15 @@
           </div>
       </div>
       <h3 id ="message"></h3>
-      <div class="text-left mt-3">
+
+    </div>
+    <div id="footer">
+      <div id="buttons" class="text-left mt-3">
         <button class="btn" onclick="next_round()">Next Round</button>
         <button class="btn" onclick="reset()">Reset</button>
       </div>
-    </div>
     <h3 id ="score"></h3>
+  </div>
   </div>
 
  <script src="typ.js"> </script>
