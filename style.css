@@ -2,36 +2,66 @@
   visibility: visible;
 }
 
-#tiger, #yoda, #puppy, #human, #comp {
+.choice, #header, #score1, #score2 {
+  display: block;
+}
+
+.choice, #human, #comp, #buttons, #scores, #header {
   visibility: hidden;
 }
 
+#human, #comp, #result {
+  display: none;
+}
+
+#header{
+  text-align: center;
+  font-size: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  display: none;
+}
+
+@media (min-width: 790px) {
+  #header {
+   font-size: 2.5rem;
+   margin-left: 2.0rem;
+ }
+
+.logo {
+  display: block;
+  }
+}
+
 #result {
-  visibility: hidden;
   margin-bottom: 1rem;
 }
 
 #message {
   text-align: left;
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-#score {
-  text-align: left;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  font-size: 0.9rem;
+  font-size: 1.0rem;
+}
+
+#scores {
+  text-align: left;
+}
+
+#score1, #score2 {
+  font-size: 0.7rem;
 }
 
 @media (min-width: 790px) {
-#message, #score {
- font-size: 1.6rem;
- }
-#score {
-  font-size: 1.3rem;
- }
+  #message {
+   font-size: 1.6rem;
+   }
+#score1, #score2 {
+  font-size: 0.9rem;
+  }
 }
 
 ul {
@@ -47,47 +77,23 @@ ul li {
 }
 
 *{
-    margin: 0;
-    padding: 0;
-    font-family: 'Jost', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Jost', sans-serif;
 }
 .container{
-    text-align: center;
-}
-
-.header{
-    text-align: center;
-    visibility: hidden;
-    font-size: 1.6rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.logo {
-  display: none;
-}
-
-@media (min-width: 790px) {
-.header {
- font-size: 2.5rem;
- margin-left: 2.0rem;
- }
-
-.logo {
-  display: block;
-  }
+  text-align: center;
 }
 
 .grid{
-    padding: 0 0.5em;
+  padding: 0 0.5em;
 }
 .card{
-    margin-bottom: 1em;
-    border-radius: 10px;
-    box-shadow: #cccccc 0 5px 10px;
-    overflow: hidden;
-    transform: scale(0.95);
-    transition: 0.3s ease;
+  border-radius: 10px;
+  box-shadow: #cccccc 0 5px 10px;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: 0.3s ease;
 }
 .card:hover{
     transform: scale(0.99);

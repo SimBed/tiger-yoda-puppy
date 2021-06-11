@@ -3,9 +3,9 @@ var imageDatabase = {
   'yoda': 'https://picsum.photos/id/1025/300',
   'puppy': 'https://picsum.photos/id/237/300',
 }
-var score = 0;
-var rounds = 0;
-var success = 0;
+var score;
+var rounds;
+var success;
 
 document.onload = initialise();
 
@@ -13,56 +13,70 @@ function initialise() {
   document.getElementById('tiger').src = addQueryParam(imageDatabase['tiger'], "grayscale");
   document.getElementById('yoda').src = addQueryParam(imageDatabase['yoda'], "grayscale");
   document.getElementById('puppy').src = addQueryParam(imageDatabase['puppy'], "grayscale");
+  clear_data();
+
   gsap.timeline()
-    .to("#choose img", {duration: 0.5, autoAlpha: 1, stagger: 0.2})
-    .to(".header", {duration: 1, autoAlpha: 1});
+    .set("body", {pointerEvents: 'none'})
+    .to("#header", {duration: 3, autoAlpha: 1, ease: "bounce"})
+    .to(".choice", {duration: 1, autoAlpha: 1, stagger: 0.4}, "-=2.5")
+    .set("body", {pointerEvents: 'all'});
   }
 
 function rsp(yourChoice) {
   var humanChoice, botChoice;
   humanChoice = yourChoice.id;
   botChoice = imagePick();
-  console.log(humanChoice + ' ' + botChoice);
   outcome = decideWinner(humanChoice, botChoice);
   score += get_score(outcome['humanResult']);
   rounds += 1;
   success = parseFloat(100 * score / rounds).toFixed(0)+"%";
+  display(humanChoice, botChoice, outcome);
   gsap.timeline()
-    .to("#choose img", {duration: 0.5, autoAlpha: 0, stagger: 0.2})
-    .set("#choose", {display: "none"}, "+=0.1")
-    .set("#result", {visibility: "visible"})
-    .set(".header", {visibility: "hidden"})
-  display(humanChoice, botChoice, outcome)
-  gsap.to("#message", {duration:1.5, text: outcome['message'], delay:0.1});
-  gsap.to("#score", {duration:1.5, text: score + " from " + rounds + ", " + success + " success" , delay:0.1});
+    .to(".choice", {duration: 0.5, autoAlpha: 0, stagger: 0.2})
+    .set(".choice", {display: "none"})
+    .set(".outcome", {display: "block"})
+    .set("#result", {display: "block", visibility: "visible"})
+    .set("#header", {autoAlpha: 0})
+    .to(".outcome", {duration: 2, autoAlpha: 1, stagger: 1, delay: 0.8})
+    .to("#message", {duration:1.5, autoAlpha: 1, text: outcome['message']}, "-=1.5")
+    .to("#buttons", {duration:1.0, autoAlpha: 1})
+    .add("test")
+    .to("#scores", {duration:1.0, autoAlpha: 1}, "-=1")
+    .set("#score1", {text: score + " from " + rounds })
+    .set("#score2", {text: success + " success" });
+    // document.getElementById('score1').innerHTML= score + " from " + rounds
+    // document.getElementById('score2').innerHTML= success + " success"
 }
 
 function display(humanChoice, botChoice, outcome) {
   document.getElementById('human').src = addQueryParam(imageDatabase[humanChoice], distort(outcome['humanResult']));
   document.getElementById('comp').src = addQueryParam(imageDatabase[botChoice], distort(compResult(outcome['humanResult'])));
-  document.getElementById('result').style.display = "block";
-  gsap.timeline()
-    .to("#human", {duration: 0.5, autoAlpha: 1})
-    .to("#comp", {duration: 0.5, autoAlpha: 1, delay: 0.5})
-  //document.getElementById('message').innerHTML = outcome['message'];
+}
+
+function clear_data() {
+  score = 0;
+  rounds = 0;
+  success = 0;
+  document.getElementById('score1').innerHTML="";
+  document.getElementById('score2').innerHTML="";
+}
+
+function reset() {
+  clear_data();
+  next_round();
 }
 
 function next_round() {
   gsap.timeline()
-    .to("#result img", {duration: 0.5, autoAlpha: 0, stagger: 0.2})
-    .set("#choose", {display: "block"})
-    .to("#choose img", {duration: 0.5, autoAlpha: 1})
-    .to(".header", {duration: 1, autoAlpha: 1});
-  // document.getElementById('result').style.visibility = "hidden";
-  document.getElementById('result').style.display = "none";
-}
-
-function reset() {
-  score = 0;
-  rounds = 0;
-  success = 0;
-  document.getElementById('score').innerHTML="";
-  next_round();
+    .to("#buttons", {duration:1.0, autoAlpha: 0})
+    .to("#message", {duration:1.0, autoAlpha: 0}, "-=1.0")
+    .set("#result", {visibility: "hidden"})
+    .set("#result", {display: "block"})
+    .to(".outcome", {duration: 2, autoAlpha: 0, stagger: 1}, "-=1.5")
+    .set(".outcome", {display: "none"})
+    .set(".choice", {display: "block"})
+    .to(".choice", {duration: 0.5, autoAlpha: 1, stagger: 0.2})
+    .to("#header", {duration: 2, autoAlpha: 1}, "-=1.0")
 }
 
 function addQueryParam(a, b) {

@@ -1,0 +1,107 @@
+#choose {
+  /* visibility: visible; */
+  display: block;
+}
+
+#tiger img, #yoda img, #puppy img, #human img, #comp img {
+  /* visibility: hidden; */
+  /* display: none; */
+  border-radius: 50px;
+}
+
+#result {
+  /* visibility: hidden; */
+  display: none;
+  margin-bottom: 1rem;
+}
+
+#message {
+  text-align: left;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+#score {
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 790px) {
+#message, #score {
+ font-size: 1.6rem;
+ }
+#score {
+  font-size: 1.3rem;
+ }
+}
+
+ul {
+  display: inline;
+}
+
+ul li {
+  display: inline-block;
+}
+
+.logo li {
+  vertical-align:middle;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', sans-serif;
+}
+.container{
+    text-align: center;
+}
+
+#header{
+    text-align: center;
+    visibility: hidden;
+    font-size: 1.6rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+  display: none;
+}
+
+@media (min-width: 790px) {
+#header {
+ font-size: 2.5rem;
+ margin-left: 2.0rem;
+ }
+
+.logo {
+  display: block;
+  }
+}
+
+.grid{
+    padding: 0 0.5em;
+}
+.card{
+    margin-bottom: 1em;
+    border-radius: 10px;
+    box-shadow: #cccccc 0 5px 10px;
+    overflow: hidden;
+    /* transform: scale(0.95); */
+    transition: 0.3s ease;
+}
+.card:hover{
+    transform: scale(0.99);
+}
+
+:any-link:hover{
+    text-decoration: none;
+}
+
+.btn {
+  color: white;
+  background-color: #555555; /* Black */
+  }

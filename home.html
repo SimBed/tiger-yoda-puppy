@@ -25,35 +25,35 @@
     <div id="choose" class="mt-2">
       <div class="grid row">
         <div class="item card col-4">
-          <img id="tiger" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1074/300">
+          <img id="tiger" class="choice row" onclick="rsp(this)" src="https://picsum.photos/id/1074/300">
+          <img id="human" class="outcome row" src="#">
         </div>
         <div class="item card col-4">
-          <img id="yoda" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/237/300">
+          <img id="yoda" class="choice row" onclick="rsp(this)" src="https://picsum.photos/id/237/300">
+          <img id="comp" class="outcome row" src="#">
         </div>
         <div class="item card col-4">
-          <img id="puppy" class="row image img-rounded img-responsive" onclick="rsp(this)" src="https://picsum.photos/id/1025/300">
+          <img id="puppy" class="choice row" onclick="rsp(this)" src="https://picsum.photos/id/1025/300">
         </div>
       </div>
     </div>
 
     <div id="result">
-      <div id="outcome" class="grid row">
-          <div class="item card col-4">
-            <img id="human" class="row image img-rounded img-responsive" src="#">
-          </div>
-          <div class="item card col-4">
-            <img id="comp" class="row image img-rounded img-responsive" src="#">
-          </div>
-      </div>
       <h3 id ="message"></h3>
-
     </div>
+
     <div id="footer">
-      <div id="buttons" class="text-left mt-3">
-        <button class="btn" onclick="next_round()">Next Round</button>
-        <button class="btn" onclick="reset()">Reset</button>
+      <div class="d-flex mt-3">
+        <div id="buttons" class="text-left mr-auto">
+          <button class="btn" onclick="next_round()">Next Round</button>
+          <button class="btn" onclick="reset()">Reset</button>
+        </div>
+        <ul id="scores">
+          <li id ="score1"></li>
+          <li id ="score2"></li>
+      </ul>
       </div>
-    <h3 id ="score"></h3>
+
   </div>
   </div>
 
